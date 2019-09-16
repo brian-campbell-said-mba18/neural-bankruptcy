@@ -31,7 +31,7 @@ def getCSVFromArff(fileName):
 
 
 def main():
-    main_path = './data/Dane/'
+    main_path = './data'
     for year in range(1, 6):
         file_path = os.path.join(main_path, '{}year'.format(year))
         getCSVFromArff(file_path)
