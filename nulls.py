@@ -1,6 +1,7 @@
 # This imports the necessary libraries.
 import numpy as np 
 import pandas as pd
+import math
 
 def xnames_creator():
     '''
@@ -35,14 +36,16 @@ def missing_names_converter(vars_for_conv):
     return converted_features
 
 def actual_null_creator(df, x_names, missing_names):
-    for i in x_names:
-        column = df[i]
+    for i in range(0,65):
+        x = x_names[i]
+        column = df[x]
         dummy_var = []
         for row in column:
-            if row == np.nan:
+            if math.isnan(row) == True:
                 dummy_var.append(1)
             else:
                 dummy_var.append(0)
-        df[missing_names] = dummy_var
+        unique_missing = missing_names[i]
+        df[unique_missing] = dummy_var
     return df
-            
+    
