@@ -41,7 +41,7 @@ def actual_null_creator(df, x_names, missing_names):
         column = df[x]
         dummy_var = []
         for row in column:
-            if math.isnan(row) is True:
+            if row == np.nan:
                 dummy_var.append(1)
             else:
                 dummy_var.append(0)
