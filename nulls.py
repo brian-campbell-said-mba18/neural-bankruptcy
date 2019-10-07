@@ -1,6 +1,7 @@
 # This imports the necessary libraries.
 import numpy as np 
 import pandas as pd
+import math
 
 def xnames_creator():
     '''
@@ -40,7 +41,7 @@ def actual_null_creator(df, x_names, missing_names):
         column = df[x]
         dummy_var = []
         for row in column:
-            if row == np.nan:
+            if math.isnan(row) is True:
                 dummy_var.append(1)
             else:
                 dummy_var.append(0)
