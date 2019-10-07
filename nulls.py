@@ -35,7 +35,7 @@ def missing_names_converter(vars_for_conv):
     return converted_features
 
 def actual_null_creator(df, x_names, missing_names):
-    for i in range(0,65):
+    for i in range(0,len(x_names)):
         x = x_names[i]
         column = df[x]
         dummy_var = []
