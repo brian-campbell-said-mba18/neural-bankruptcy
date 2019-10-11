@@ -49,4 +49,16 @@ def actual_null_creator(df, x_names, missing_names):
         dummy_var = np.asarray(dummy_var)
         df[unique_missing] = dummy_var
     return df
-    
+
+def missing_counter(df):
+    '''
+    This function counts up the number of missing values
+    for a given row of data
+    '''
+    # This code comes from Reference 1 of the References
+    # Section.
+    df['missing_count']= df.iloc[:, -64:].sum(axis=1)
+    return df
+
+# References
+# 1. https://stackoverflow.com/questions/42063716/pandas-sum-up-multiple-columns-into-one-column-without-last-column
