@@ -61,4 +61,4 @@ def missing_counter(df):
     return df
 
 # References
-# 1. https://stackoverflow.com/questions/42063716/pandas-sum-up-multiple-columns-into-one-column-without-last-column
+# 1. https://stackoverflow.com/questions/42063716/pandas-sum-up-multiple-columns-into-oneS
