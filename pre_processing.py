@@ -15,6 +15,10 @@ def oversample(x_data, y_data):
     variables. This function returns a minority class that has a number
     of rows equal to that of the majority class.
     '''
+    # This sets the random_state_variable for 
+    # reproducable results.
+    random_state_variable = 42
+
     # This converts the x and y training data
     # back to pandas dataframes.
     # This comes from Reference 1 in References.
