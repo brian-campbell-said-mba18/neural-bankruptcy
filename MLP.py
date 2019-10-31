@@ -7,9 +7,10 @@ from keras.optimizers import SGD
 from keras import regularizers
 import numpy as np
 
-def build_model(dropout, l2_factor, hidden_act, out_act,
-                n_hidden, opt_func, x, y):
-    hidden_layer_sizes = list(range(1,101,1))
+def build_model(drop_rate, l2_factor, hidden_act, out_act,
+                n_hidden):
+    n_1 = int(n_hidden + 1)
+    hidden_layer_sizes = list(range(1,n_1,1))
     hidden_layer_sizes.sort(reverse=True)
     
     # This defines the model as a sequential model.
@@ -21,7 +22,7 @@ def build_model(dropout, l2_factor, hidden_act, out_act,
     model.add(Dense(hidden_layer_sizes[0], activation = hidden_act,
         kernel_regularizer = regularizers.l2(l2_factor),
         input_dim = np.size(x,1)))
-    model.add(Dropout(dropout))
+    model.add(Dropout(drop_rate))
 
     # This creates the hidden layers.
     # This comes from Reference 2 in References.
@@ -29,20 +30,16 @@ def build_model(dropout, l2_factor, hidden_act, out_act,
         model.add(Dense(hidden_layer_sizes[i],
                 activation = hidden_act,
                 kernel_regularizer = regularizers.l2(l2_factor)))
-        model.add(Dropout(dropout))
+        model.add(Dropout(drop_rate))
 
     # This creates the output layer.
     # This comes from Reference 1 in References.
     model.add(Dense(hidden_layer_sizes[99],
             activation=out_act))
     
-    # This compiles the model.
-    # This comes from Reference 1 in References.
-    model.compile(loss='binary_crossentropy',
-                optimizer=opt_func,
-                metrics=['accuracy']
     # This returns the model.
     return model
+    
 
 # References
 # 1. https://keras.io/getting-started/sequential-model-guide/
