@@ -8,8 +8,8 @@ from keras import regularizers
 import numpy as np
 
 def build_model(drop_rate, l2_factor, hidden_act, out_act,
-                n_hidden, in_dense, hid_dense, x):
-    
+                num_hidden, in_dense, hid_dense, x):
+    dim_int = int(np.size(x,1))
     # This defines the model as a sequential model.
     # This comes from References 1 & 2 in References.
     model = Sequential()
@@ -18,15 +18,15 @@ def build_model(drop_rate, l2_factor, hidden_act, out_act,
     # This comes from References 1 & 3 in References.
     model.add(Dense(in_dense, activation = hidden_act,
         kernel_regularizer = regularizers.l2(l2_factor),
-        input_dim = np.size(x,1)))
+        input_dim = dim_int))
     model.add(Dropout(drop_rate))
 
     # This creates the hidden layers.
     # This comes from Reference 2 in References.
-    for i in range(0,100):
+    for i in range(num_hidden):
         model.add(Dense(hid_dense,
-                activation=hidden_act,
-                kernel_regularizer = regularizers.l2(l2_factor)))
+            activation = hidden_act,
+            kernel_regularizer = regularizers.l2(l2_factor)))
         model.add(Dropout(drop_rate))
 
     # This creates the output layer.
