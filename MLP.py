@@ -8,10 +8,9 @@ from keras import regularizers
 import numpy as np
 
 def build_model(dropout, l2_factor, hidden_act, out_act,
-                n_hidden, x, y):
+                n_hidden, opt_func, x, y):
     hidden_layer_sizes = list(range(1,101,1))
-    hidden_layer_sizes = hidden_layer_sizes.sort(
-                        reverse=True)
+    hidden_layer_sizes.sort(reverse=True)
     # This defines the model as a sequential model.
     # This comes from References 1 & 2 in References.
     model = Sequential()
@@ -23,9 +22,26 @@ def build_model(dropout, l2_factor, hidden_act, out_act,
         input_dim = np.size(x,1)))
     model.add(Dropout(dropout))
 
+    # This creates the hidden layers.
+    # This comes from Reference 2 in References.
+    for i in hidden_layer_sizes[1:99]:
+        model.add(Dense(hidden_layer_sizes[i],
+                activation = hidden_act,
+                kernel_regularizer = regularizers.l2(l2_factor)))
+        model.add(Dropout(dropout))
 
-
-
+    # This creates the output layer.
+    # This comes from Reference 1 in References.
+    model.add(Dense(hidden_layer_sizes[99],
+            activation=out_act))
+    
+    # This compiles the model.
+    # This comes from Reference 1 in References.
+    model.compile(loss='binary_crossentropy',
+                optimizer=opt_func,
+                metrics=['accuracy']
+    # This returns the model.
+    return model
 
 # References
 # 1. https://keras.io/getting-started/sequential-model-guide/
