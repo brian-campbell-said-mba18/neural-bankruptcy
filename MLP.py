@@ -11,6 +11,7 @@ def build_model(dropout, l2_factor, hidden_act, out_act,
                 n_hidden, opt_func, x, y):
     hidden_layer_sizes = list(range(1,101,1))
     hidden_layer_sizes.sort(reverse=True)
+    
     # This defines the model as a sequential model.
     # This comes from References 1 & 2 in References.
     model = Sequential()
