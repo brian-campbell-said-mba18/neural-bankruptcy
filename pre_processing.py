@@ -56,5 +56,32 @@ def oversample(x_data, y_data):
 
     return X_oversampled, y_oversampled 
 
+def drop_nulls_testing(x_testing, y_testing):
+    # This concatenates the x and y testing data.
+    # This comes from Reference 1 in References.
+    testing_concat = pd.concat([x_testing, y_testing],
+    axis=1)
+
+    # This drops all the null values in the testing data.
+    # This comes from Reference 2 in References.
+    testing_concat = testing_concat.dropna()
+
+    # This seperates the x freatures from the target variable.
+    new_y_testing = testing_concat['bankrupt']
+    new_x_testing = testing_concat.drop()
+
+    # This returns the x testing and y testing data.
+    return new_x_testing, new_y_testing
+
+
+
+    
+
+
+
+
+
+
+
 # References
 # 1. https://towardsdatascience.com/methods-for-dealing-with-imbalanced-data-5b761be45a18
