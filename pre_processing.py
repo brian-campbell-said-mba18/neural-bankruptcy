@@ -77,7 +77,7 @@ def drop_nulls(x_data, y_data):
 
     # This seperates the x freatures from the target variable.
     new_y_data = data_concat['bankrupt']
-    new_x_data = data_concat.drop()
+    new_x_data = data_concat.drop('bankrupt')
 
     # This converts new_x_data to a numpy array.
     new_x_data = np.array(new_x_data)
