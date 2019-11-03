@@ -62,6 +62,10 @@ def drop_nulls(x_data, y_data):
     and then drops all the null values. It then separates
     the x data from the y data.
     '''
+
+    # This converts the x_data to a pandas dataframe.
+    x_data = pd.DataFrame(x_data)
+
     # This concatenates the x and y testing data.
     # This comes from Reference 1 in References.
     data_concat = pd.concat([x_data, y_data],
@@ -75,8 +79,12 @@ def drop_nulls(x_data, y_data):
     new_y_data = data_concat['bankrupt']
     new_x_data = data_concat.drop()
 
+    # This converts new_x_data to a numpy array.
+    new_x_data = np.array(new_x_data)
+
     # This returns the x testing and y testing data.
     return new_x_data, new_y_data
 
 # References
 # 1. https://towardsdatascience.com/methods-for-dealing-with-imbalanced-data-5b761be45a18
+# 2. https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.dropna.html
