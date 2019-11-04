@@ -87,7 +87,7 @@ def drop_nulls(x_data, y_data):
 
 def null_test(np_array):
     df_test = pd.DataFrame(np_array)
-    return df_test.info(verbose=True)
+    return df_test.info(verbose=True, null_counts=True)
     
 # References
 # 1. https://towardsdatascience.com/methods-for-dealing-with-imbalanced-data-5b761be45a18
