@@ -100,7 +100,7 @@ def percentage_test(testing, training):
     '''
     test_size = len(testing)
     training_size = len(training)
-    proportion = (test_size/(test_size + training_size) * 100
+    proportion = (test_size/(test_size + training_size)) * 100
     answer_string = "The percentage of the testing data out of the entire data set is {}%.".format(proportion)
     return answer_string
 
