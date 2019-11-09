@@ -22,6 +22,10 @@ def x1_plot(the_data):
     plt.xlabel('Net Profit/Total Assets Ratio')
     plt.ylabel('Bankrupt (True = 1, False = 0)')
 
+    # This adjust the figure size.
+    # This comes from Reference 3 in References.
+    plt.figure(figsize=(12.0, 4.0))
+
 def x10_plot(the_data):
     '''
     This scatterplot plots Equity/Total Assets in the 
@@ -29,15 +33,21 @@ def x10_plot(the_data):
     '''
     # This creates the scatterplot.
     # This comes from Reference 1 in References.
-    # This comes from Reference 2 in References.
     sns.scatterplot(x='X10', y='bankrupt', data = the_data)
 
     # This adds a title to the graph
     # and labels to the x and y axes.
+    # This comes from Reference 2 in References.
     plt.title("The Effect of Equity/Total Assets on Bankruptcy")
     plt.xlabel('Net Equity/Total Assets Ratio')
     plt.ylabel('Bankrupt (True = 1, False = 0)')
 
+    # This comes from Reference 3 in References.
+    plt.figure(figsize=(12.0, 4.0))
+
+
+
 # REFERENCES
 # 1. https://seaborn.pydata.org/generated/seaborn.scatterplot.html
 # 2. Udacity Data Analyst Nanodegree, Semester 1, Brian Campbell – Project 3, Determining Factors that Correlate to Movie Profitability
+# 3. https://matplotlib.org/3.1.1/api/_as_gen/matplotlib.pyplot.figure.html#matplotlib.pyplot.figure
