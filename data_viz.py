@@ -11,6 +11,10 @@ def x1_plot(the_data):
     This scatterplot plots Net Profit/Total Assets in the 
     X axis and Bankrupt (true = 1, false = 0) in the y-axis.
     '''
+    # This adjust the figure size.
+    # This comes from Reference 3 in References.
+    plt.figure(figsize=(12.0, 4.0))
+
     # This creates the scatterplot.
     # This comes from Reference 1 in References.
     sns.scatterplot(x='X1', y='bankrupt', data = the_data)
@@ -22,15 +26,15 @@ def x1_plot(the_data):
     plt.xlabel('Net Profit/Total Assets Ratio')
     plt.ylabel('Bankrupt (True = 1, False = 0)')
 
-    # This adjust the figure size.
-    # This comes from Reference 3 in References.
-    plt.figure(figsize=(12.0, 4.0))
-
 def x10_plot(the_data):
     '''
     This scatterplot plots Equity/Total Assets in the 
     X axis and Bankrupt (true = 1, false = 0) in the y-axis.
     '''
+    
+    # This comes from Reference 3 in References.
+    plt.figure(figsize=(12.0, 4.0))
+
     # This creates the scatterplot.
     # This comes from Reference 1 in References.
     sns.scatterplot(x='X10', y='bankrupt', data = the_data)
@@ -41,11 +45,6 @@ def x10_plot(the_data):
     plt.title("The Effect of Equity/Total Assets on Bankruptcy")
     plt.xlabel('Net Equity/Total Assets Ratio')
     plt.ylabel('Bankrupt (True = 1, False = 0)')
-
-    # This comes from Reference 3 in References.
-    plt.figure(figsize=(12.0, 4.0))
-
-
 
 # REFERENCES
 # 1. https://seaborn.pydata.org/generated/seaborn.scatterplot.html
