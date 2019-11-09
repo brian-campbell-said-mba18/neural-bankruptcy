@@ -33,7 +33,7 @@ def x10_plot(the_data):
     '''
     
     # This comes from Reference 3 in References.
-    plt.figure(figsize=(12.0, 7.0))
+    plt.figure(figsize=(12.0, 4.0))
 
     # This creates the scatterplot.
     # This comes from Reference 1 in References.
